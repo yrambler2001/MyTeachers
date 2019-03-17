@@ -11,10 +11,10 @@ class TeacherTable extends React.Component {
         return (
             <div>
                 <table>
-                <thead> <TableRow items={['Name', 'Surname', 'Phone', 'Subject', 'Notes']} /> </thead>
-                <tbody> 
-                    {teachers.items.map(x => {return <TableRow id={x._id} items={[x.name, x.surname, x.phone, x.subject, x.notes]} />})}
-                    </tbody> 
+                    <thead> <TableRow items={['Name', 'Surname', 'Phone', 'Subject', 'Notes']} /> </thead>
+                    <tbody>
+                        {teachers.items.map(x => { return <TableRow id={x._id} items={[x.name, x.surname, x.phone, x.subject, x.notes]} /> })}
+                    </tbody>
                 </table>
             </div>
         );

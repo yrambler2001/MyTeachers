@@ -27,7 +27,7 @@ class Collection {
       if (jsonString) {
         items = JSON.parse(jsonString);
       }
-    } catch {}
+    } catch { }
     return items;
   }
 
@@ -67,7 +67,7 @@ class Collection {
 
   remove(id) {
     console.log(id)
-    this._items=this._items.filter(({ _id }) => _id !== id);
+    this._items = this._items.filter(({ _id }) => _id !== id);
     this._writeToLocalStorage();
   }
 

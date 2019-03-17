@@ -13,9 +13,11 @@ class TableRow extends React.Component {
             return <th>{x}</th>
         })
     }
-    handleButtonClick = (e,ee) => {console.log(this.props.id);
+    handleButtonClick = (e, ee) => {
+        console.log(this.props.id);
         teachers.remove(this.props.id);
-    rerender()}
+        rerender()
+    }
     render() {
         return (
             <tr>

@@ -5,7 +5,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-let f=()=>{return ReactDOM.render(<App />, document.getElementById('root'))};
+let f = () => { return ReactDOM.render(<App />, document.getElementById('root')) };
 //TODO update only components that need to.
 f();
 
