@@ -13,8 +13,7 @@ class TeacherTable extends React.Component {
                 <table>
                 <thead> <TableRow items={['Name', 'Surname', 'Phone', 'Subject', 'Notes']} /> </thead>
                 <tbody> 
-                    {teachers.items.map(x => 
-                    <TableRow items={[x.name, x.surname, x.phone, x.subject, x.notes]} />)}
+                    {teachers.items.map(x => {return <TableRow id={x._id} items={[x.name, x.surname, x.phone, x.subject, x.notes]} />})}
                     </tbody> 
                 </table>
             </div>

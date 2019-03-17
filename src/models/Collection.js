@@ -66,7 +66,8 @@ class Collection {
   }
 
   remove(id) {
-    this._items.filter(({ _id }) => _id !== id);
+    console.log(id)
+    this._items=this._items.filter(({ _id }) => _id !== id);
     this._writeToLocalStorage();
   }
 
