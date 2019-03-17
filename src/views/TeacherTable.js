@@ -1,6 +1,7 @@
 import React from 'react';
 import TableRow from '../components/TableRow'
 import teachers from '../collections/teachers'
+import "./TeacherTable.css"
 class TeacherTable extends React.Component {
     constructor(props) {
         super(props);
@@ -9,7 +10,7 @@ class TeacherTable extends React.Component {
 
     render() {
         return (
-            <div>
+            <div class="container1">
                 <table>
                     <thead> <TableRow items={['Name', 'Surname', 'Phone', 'Subject', 'Notes']} /> </thead>
                     <tbody>

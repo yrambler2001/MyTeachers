@@ -3,6 +3,7 @@ import React from 'react';
 import rerender from '../index';
 //TODO: update only table
 import teachers from "../collections/teachers";
+import './TeacherForm.css'
 
 
 class TeacherForm extends React.Component {
@@ -54,19 +55,51 @@ class TeacherForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>Name</label>
-        <input type="text" value={this.state.valueName} onChange={this.handleChangeName} required /><br />
-        <label>Surname</label>
-        <input type="text" value={this.state.valueSurname} onChange={this.handleChangeSurname} required /><br />
-        <label>Phone</label>
-        <input type="tel" value={this.state.valuePhone} onChange={this.handleChangePhone} pattern='\+380\d{9}' /><br />
-        <label>Subject</label>
-        <input type="text" value={this.state.valueSubject} onChange={this.handleChangeSubject} required /><br />
-        <label>Notes</label>
-        <textarea value={this.state.valueNotes} onChange={this.handleChangeNotes} /><br />
-        <input type="submit" value="Submit" />
-      </form>
+      <div class="container">
+        <form onSubmit={this.handleSubmit}>
+          <div class="row">
+            <div class="col-25">
+              <label>Name</label>
+            </div>
+            <div class="col-75">
+              <input type="text" value={this.state.valueName} onChange={this.handleChangeName} required /><br />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label>Surname</label>
+            </div>
+            <div class="col-75">
+              <input type="text" value={this.state.valueSurname} onChange={this.handleChangeSurname} required /><br />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label>Phone</label>
+            </div>
+            <div class="col-75">
+              <input type="tel" value={this.state.valuePhone} onChange={this.handleChangePhone} pattern='\+380\d{9}' /><br />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label>Subject</label>
+            </div>
+            <div class="col-75">
+              <input type="text" value={this.state.valueSubject} onChange={this.handleChangeSubject} required /><br />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label>Notes</label>
+            </div>
+            <div class="col-75">
+              <textarea value={this.state.valueNotes} onChange={this.handleChangeNotes} /><br />
+            </div>
+          </div>
+          <input type="submit" value="Submit" />
+        </form>
+      </div>
     );
   }
 }

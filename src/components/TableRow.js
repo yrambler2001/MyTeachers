@@ -22,7 +22,7 @@ class TableRow extends React.Component {
         return (
             <tr>
                 {this.getItems()}
-                {this.props.id ? (<button id={this.props.id} type="button" onClick={this.handleButtonClick}>Delete</button>) : ""}
+                {this.props.id ? (<button id={this.props.id} type="button" onClick={this.handleButtonClick}>Delete</button>) : <br/>}
             </tr>
         );
     }
