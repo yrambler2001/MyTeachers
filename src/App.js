@@ -3,13 +3,13 @@ import logo from './logo.svg';
 import './App.css';
 import TeacherForm from './views/TeacherForm'
 import TeacherTable from './views/TeacherTable';
+
 var _ = require('lodash');
 
+
 class App extends Component {
-  static a = [];//database
-  //TODO: Add database
   render() {
-    this.tt=<TeacherTable table={App.a} />
+    this.tt = <TeacherTable />
     return (
       <div className="App">
         <header className="App-header">
@@ -26,7 +26,7 @@ class App extends Component {
           >
             Learn React
           </a>
-          <TeacherForm update={this.tt}/>
+          <TeacherForm update={this.tt} />
           {this.tt}
         </header>
       </div>
