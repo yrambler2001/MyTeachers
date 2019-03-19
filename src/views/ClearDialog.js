@@ -53,7 +53,7 @@ export default class FormDialog extends React.Component {
           <DialogTitle id="form-dialog-title">Clear all</DialogTitle>
           <DialogContent>
             <DialogContentText>
-              To clear all teachers, please enter your password here.
+              To clear all teachers, please enter your password here. TODO: Wrong password warning.
             </DialogContentText>
             <TextField
               onChange={this.handleChangePass}
