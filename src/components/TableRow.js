@@ -1,6 +1,9 @@
 import React from 'react';
 import teachers from "../collections/teachers";
 import rerender from '../index';
+import EditDialog from '../views/EditDialog'
+import Button from '@material-ui/core/Button';
+
 
 
 class TableRow extends React.Component {
@@ -9,9 +12,14 @@ class TableRow extends React.Component {
         this.state = { value: '', isChecked: false };
     }
     getItems() {
-        return this.props.items.map(x => {
-            return <th>{x}</th>
-        })
+        if (Array.isArray(this.props.items))
+            return this.props.items.map(x => <th>{x}</th>);
+        return [
+            <th>{this.props.items.name}</th>,
+            <th>{this.props.items.surname}</th>,
+            <th>{this.props.items.phone}</th>,
+            <th>{this.props.items.subject}</th>,
+            <th>{this.props.items.notes}</th>]
     }
     handleButtonClick = (e, ee) => {
         console.log(this.props.id);
@@ -31,10 +39,12 @@ class TableRow extends React.Component {
     render() {
         return (
             <tr>
-                {this.props.id ? (<input type="checkbox" id={this.props.id} onChange={this.toggleChange} autocomplete="off"/>) : <br />}
+                <th>{this.props.id ? (<input type="checkbox" id={this.props.id} onChange={this.toggleChange} autoComplete="off" />) : <br/>}</th>
                 {this.getItems()}
-                {this.props.id ? (<button id={this.props.id} type="button" onClick={this.handleButtonClick}>Delete</button>) : <br />}
-                {console.log(this)}
+                <th>{this.props.id ?// (<button id={this.props.id} type="button" onClick={this.handleButtonClick}>Delete</button>) : <br />}
+                 <Button variant="contained" onClick={this.handleButtonClick}>Delete</Button>:<a></a>
+                }</th>
+                <th>{this.props.id ? (<EditDialog items={this.props.items}/>) : ""}</th>
             </tr>
         );
     }

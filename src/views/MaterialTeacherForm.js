@@ -4,12 +4,21 @@ import rerender from '../index';
 //TODO: update only table
 import teachers from "../collections/teachers";
 import './TeacherForm.css'
+import Button from '@material-ui/core/Button';
+import DialogActions from '@material-ui/core/DialogActions';
+
 
 
 class TeacherForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { valueName: '', valueSurname: '', valuePhone: '', valueSubject: '', valueNotes: '' };
+    this.state = this.props.items?{
+      valueName: this.props.items.name || '',
+      valueSurname: this.props.items.surname || '',
+      valuePhone: this.props.items.phone || '',
+      valueSubject: this.props.items.subject || '',
+      valueNotes: this.props.items.notes || ''
+    }:{ valueName: '', valueSurname: '', valuePhone: '', valueSubject: '', valueNotes: '' };
 
     this.handleChangeName = this.handleChangeName.bind(this);
     this.handleChangeSurname = this.handleChangeSurname.bind(this);
@@ -37,26 +46,32 @@ class TeacherForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-
-    console.log(teachers.items)
-    // const postId = db    .get('posts')    .push({ id: shortid.generate(), title: 'low!' })    .write()    .id
     let teacher = {
       name: this.state.valueName, surname: this.state.valueSurname,
       phone: this.state.valuePhone, subject: this.state.valueSubject, notes: this.state.valueNotes
     };
-    teachers.insert(teacher);
+    if (this.props.scenario === 'edit') {
+      teachers.update(this.props.items._id, teacher);
+      this.props.handleClose();
+      rerender();
+    } else {
+      console.log(teachers.items)
+      // const postId = db    .get('posts')    .push({ id: shortid.generate(), title: 'low!' })    .write()    .id
 
-    //console.log(this.state.valueName);
-    // this.props.update.setState(this.props.update.state)
-    //console.log(this.props.update)
-    rerender(); //TODO: update only table
-    //teacherTable.setState(TeacherTable.state);
+      teachers.insert(teacher);
+
+      //console.log(this.state.valueName);
+      // this.props.update.setState(this.props.update.state)
+      //console.log(this.props.update)
+      rerender(); //TODO: update only table
+      //teacherTable.setState(TeacherTable.state);
+    }
   }
 
   render() {
     return (
       <div className="container">
-        <form onSubmit={this.handleSubmit}>
+        <form id='form' onSubmit={this.handleSubmit}>
           <div className="row">
             <div className="col-25">
               <label>Name</label>
@@ -97,7 +112,16 @@ class TeacherForm extends React.Component {
               <textarea value={this.state.valueNotes} onChange={this.handleChangeNotes} /><br />
             </div>
           </div>
-          <input type="submit" value="Submit" />
+          {/* <DialogActions>
+          <Button onClick={this.props.handleClose} color="primary">
+            Close
+            </Button>
+          <Button type="submit" color="primary">
+            Submit
+            </Button>
+          </DialogActions> */}
+
+          {/* <input type="submit" value="Submit" /> */}
         </form>
       </div>
     );
