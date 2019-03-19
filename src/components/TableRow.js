@@ -3,6 +3,8 @@ import teachers from "../collections/teachers";
 import rerender from '../index';
 import EditDialog from '../views/EditDialog'
 import Button from '@material-ui/core/Button';
+import Checkbox from '@material-ui/core/Checkbox';
+
 
 
 
@@ -39,7 +41,11 @@ class TableRow extends React.Component {
     render() {
         return (
             <tr>
-                <th>{this.props.id ? (<input type="checkbox" id={this.props.id} onChange={this.toggleChange} autoComplete="off" />) : <br/>}</th>
+                <th>{this.props.id ? //<input type="checkbox" id={this.props.id} onChange={this.toggleChange} autoComplete="off" />
+                <Checkbox
+                //checked={this.state.checkedA}
+                onChange={this.toggleChange}
+              /> : <br/>}</th>
                 {this.getItems()}
                 <th>{this.props.id ?// (<button id={this.props.id} type="button" onClick={this.handleButtonClick}>Delete</button>) : <br />}
                  <Button variant="contained" onClick={this.handleButtonClick}>Delete</Button>:<a></a>
