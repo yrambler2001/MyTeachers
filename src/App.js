@@ -14,8 +14,11 @@ class App extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>{_.ceil(3.3) === 4 ? "Lodash loaded" : "no Lodash"}</p>
+          <details>
+          <summary>Old form (spoiler)</summary>
           <TeacherForm />
-          <br/>
+          <br/></details>
+          
           <TeacherTable />
           <br/>
         </header>

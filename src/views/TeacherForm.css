@@ -20,6 +20,7 @@ input[type=text],input[type=tel], select, textarea{
     background-color: #4CAF50ff;
     color: white;
     padding: 12px 20px;
+    margin: 5px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -30,7 +31,12 @@ input[type=text],input[type=tel], select, textarea{
   .container {
     border-radius: 5px;
     background-color: #f2f2f2aa;
-    padding: 20px;
+    /* padding: 20px; */
+    padding: 20px 20px 70px 30px;
+  }
+
+  details {
+    width: 90%;
   }
   
   /* Floating column for labels: 25% width */
@@ -56,8 +62,15 @@ input[type=text],input[type=tel], select, textarea{
   
   /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
   @media screen and (max-width: 600px) {
-    .col-25, .col-75, input[type=submit] {
+    .col-25, .col-75 {
       width: 100%;
       margin-top: 0;
+    }
+    input[type=submit]{
+      width: 100%;
+    }
+    label{
+      margin: 0;
+      padding: 15px 12px 7px 0px;
     }
   }
