@@ -13,6 +13,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
+          <p>{_.ceil(3.3) === 4 ? "Lodash loaded" : "no Lodash"}</p>
           <TeacherForm />
           <br/>
           <TeacherTable />
