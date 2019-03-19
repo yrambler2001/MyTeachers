@@ -2,6 +2,7 @@ import React from 'react';
 import TableRow from '../components/TableRow'
 import teachers from '../collections/teachers'
 import rerender from '../index';
+import ClearDialog from './ClearDialog'
 
 
 import "./TeacherTable.css"
@@ -27,7 +28,10 @@ class TeacherTable extends React.Component {
                     <tbody>
                         {teachers.items.map(x => { return <TableRow key={x._id} checkedSet={this.checkedSet} id={x._id} items={[x.name, x.surname, x.phone, x.subject, x.notes]} /> })}
                     </tbody>
-                    <button id={this.props.id} type="button" onClick={this.handleButtonClick}>Delete</button>
+                    <tr>
+                        <th><button id={this.props.id} type="button" onClick={this.handleButtonClick}>Delete</button></th>
+                        <th><ClearDialog /></th>
+                    </tr>
                 </table>
             </div>
         );
